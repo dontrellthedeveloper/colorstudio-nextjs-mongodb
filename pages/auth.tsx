@@ -1,4 +1,5 @@
 import React from 'react'
+import Input from '../components/Input';
 
 const Auth = () => {
   return (
@@ -13,7 +14,13 @@ const Auth = () => {
                         Sign in
                     </h2>
                     <div className="flex flex-col gap-4">
-                        
+                        <Input
+                          id="email"
+                          type="email"
+                          label="Email"
+                          onChange={()=>{}}
+                          value=""
+                        />
                     </div>
                 </div>
             </div>
