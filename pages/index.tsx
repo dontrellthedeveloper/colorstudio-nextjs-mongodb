@@ -1,5 +1,6 @@
 import {NextPageContext} from 'next';
 import {signOut, getSession} from 'next-auth/react';
+import Billboard from '../components/Billboard';
 import Navbar from '../components/Navbar';
 
 import useCurrentUser from '../hooks/useCurrentUser';
@@ -26,6 +27,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      <Billboard />
     </>
   )
 }
