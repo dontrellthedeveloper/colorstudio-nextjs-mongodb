@@ -65,4 +65,8 @@ model Movie {
   thumbnailUrl String
   genre String
   duration String
+  rated String
+  year String
+  releaseDate String
+  popularity Int
 }

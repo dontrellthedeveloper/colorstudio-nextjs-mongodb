@@ -7,6 +7,7 @@ import FavoriteButton from './FavoriteButton';
 import useInfoModal from '../hooks/useInfoModal';
 
 
+import { MovieInterface } from '../types';
 
 interface MovieCardProps {
   data: MovieInterface;
@@ -17,6 +18,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { openModal } = useInfoModal();
 
   const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
+
+  const theDate = Date.now()
+
+
+  console.log(theDate)
 
 
   return (
@@ -81,14 +87,27 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
               <BsChevronDown className="text-white group-hover/item:text-neutral-300 w-4 lg:w-6" />
             </div>
           </div>
-          <p className="text-green-400 font-semibold mt-4">
-            New <span className="text-white">2023</span>
-          </p>
           <div className="flex flex-row mt-4 gap-2 items-center"> 
-            <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
+            <p className="text-white text-[20px] font-extrabold lg:text-md">{data.title}</p>
           </div>
-          <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm">
-            <p>{data.genre}</p>
+          <div className="flex flex-row items-center gap-3">
+
+            <p className="text-green-400 font-semibold mt-4">
+                <span className="text-white">{data.releaseDate}</span>
+                {/* New  */}
+            </p>
+            <div className="flex flex-row mt-4 gap-2 items-center ml-auto"> 
+                <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
+            </div>
+          </div>
+          <div className="flex flex-row items-center gap-3">
+            <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm">
+                <p>{data.genre}</p>
+            </div>
+
+            <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm ml-auto">
+                <p>Rated: {data.rated}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -14,3 +14,25 @@ body {
 html {
   @apply h-full;
 }
+
+
+body::-webkit-scrollbar {
+  width: 0.4em;
+  /*background: black;*/
+  background: #000;
+  z-index: 5;
+  height: 0.3em;
+  display: none;
+}
+body::-webkit-scrollbar-thumb {
+  /*background: #c0392b;*/
+  background: red;
+  height:20px;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+body::-webkit-scrollbar-track-piece
+{
+  display:none;
+}
