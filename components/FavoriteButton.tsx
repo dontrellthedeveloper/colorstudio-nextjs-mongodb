@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useCallback, useMemo } from 'react';
-import { PlusIcon, CheckIcon } from '@heroicons/react/24/outline';
+// import { PlusIcon, CheckIcon } from '@heroicons/react/24/outline';
 
 import { AiOutlinePlus, AiOutlineCheck } from 'react-icons/ai';
 
 import useCurrentUser from '../hooks/useCurrentUser';
 import useFavorites from '../hooks/useFavorites';
+
+import  {AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
 
 interface FavoriteButtonProps {
   movieId: string
@@ -40,7 +42,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
     mutateFavorites();
   }, [movieId, isFavorite, currentUser, mutate, mutateFavorites]);
   
-  const Icon = isFavorite ? AiOutlineCheck : AiOutlinePlus;
+  const Icon = isFavorite ? AiFillHeart : AiOutlineHeart;
 
   return (
     <div onClick={toggleFavorites} className="cursor-pointer group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
