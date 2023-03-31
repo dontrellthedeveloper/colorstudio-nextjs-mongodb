@@ -10,6 +10,31 @@ import useInfoModal from '../hooks/useInfoModal';
 
 import { MovieInterface } from '../types';
 
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+
+const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+
 interface MovieCardProps {
   data: MovieInterface;
 }
@@ -20,14 +45,16 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
   const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
 
-  const theDate = Date.now()
+//   const theDate = Date.now()
 
 
-  console.log(theDate)
+//   console.log(theDate)
 
 
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
+
+
       <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
         cursor-pointer
         object-cover
@@ -53,9 +80,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         delay-300
         w-full
         scale-0
+
+
         group-hover:scale-110
         group-hover:-translate-y-[6vw]
-        group-hover:translate-x-[2vw]
+        group-hover:translate-x-[0vw]
         group-hover:opacity-100
       ">
         <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
@@ -68,6 +97,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           w-full
           h-[12vw]
         " />
+        
         <div className="
           z-10
           bg-zinc-800
@@ -88,9 +118,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
               <BsInfoLg className="text-white group-hover/item:text-neutral-300 w-4 lg:w-6" />
             </div>
           </div>
-          <div className="flex flex-row mt-4 gap-2 items-center"> 
+          {/* <div className="flex flex-row mt-4 gap-2 items-center"> 
             <p className="text-white text-[20px] font-extrabold lg:text-md">{data.title}</p>
-          </div>
+          </div> */}
           <div className="flex flex-row items-center gap-3">
 
             <p className="text-white mt-4">
@@ -114,7 +144,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           </div>
         </div>
       </div>
+
     </div>
+
   )
 }
 

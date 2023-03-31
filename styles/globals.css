@@ -36,3 +36,44 @@ body::-webkit-scrollbar-track-piece
 {
   display:none;
 }
+
+
+.app-scroll {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+}
+
+.app-scroll > * {
+  grid-column: 2 / -2;
+}
+
+.app-scroll > .full-scroll {
+  grid-column: 1 / -1;
+}
+
+.hs-scroll {
+  display: grid;
+  grid-template-columns: repeat(1000, calc(25% - 40px));
+  grid-template-rows: minmax(150px, 1fr);
+}
+
+
+
+.slick-list {
+  overflow: visible !important;
+}
+
+
+.slick-slide {
+  padding: 5px !important;
+}
+
+
+
+
+
+
+
+
+
+
