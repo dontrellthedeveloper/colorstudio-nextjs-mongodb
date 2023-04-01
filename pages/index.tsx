@@ -8,6 +8,7 @@ import useCurrentUser from '../hooks/useCurrentUser';
 import useMovieList from '../hooks/useMovieList';
 import useMovieListAction from '../hooks/useMovieListAction';
 import useMovieListComedy from '../hooks/useMovieListComedy';
+import useMovieListDrama from '../hooks/useMovieListDrama';
 import useFavorites from '../hooks/useFavorites';
 import InfoModal from '../components/InfoModal';
 import useInfoModal from '../hooks/useInfoModal';
@@ -37,6 +38,7 @@ const Home = () => {
   const {isOpen, closeModal} = useInfoModal();
   const { data: actionMovies = [] } = useMovieListAction();
   const { data: comedyMovies = [] } = useMovieListComedy();
+  const { data: dramaMovies = [] } = useMovieListDrama();
 
   console.log(movies)
   console.log(actionMovies)
@@ -51,7 +53,7 @@ const Home = () => {
       <MovieList title="Trending Now" data={movies} />
       <MovieList title="Action" data={actionMovies} />
       <MovieList title="Comedy" data={comedyMovies} />
-
+      <MovieList title="Drama" data={dramaMovies} />
       </div>
     </>
   )
