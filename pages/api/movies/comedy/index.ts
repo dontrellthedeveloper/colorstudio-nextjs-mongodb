@@ -11,9 +11,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await serverAuth(req);
 
 
-    const actionMovies = await prismadb.movie.findMany({
+    const comedyMovies = await prismadb.movie.findMany({
         where: {
-              genre: 'action'
+              genre: 'comedy'
         },
         orderBy: [
           {
@@ -22,9 +22,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ]
     });
 
-    // console.log(actionMovies)
+    // console.log(comedyMovies)
 
-    return res.status(200).json(actionMovies);
+    return res.status(200).json(comedyMovies);
   } catch (error) {
     console.log({ error })
     return res.status(500).end();

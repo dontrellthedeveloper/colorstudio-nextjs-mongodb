@@ -125,7 +125,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
             <p className="text-white mt-4">
                 <span className="text-white font-semibold "></span>
-                {/* New  */} {data.releaseDate}
+                {/* New  */} Release: {data.releaseDate}
             </p>
             <div className="flex flex-row mt-4 gap-2 items-center ml-auto"> 
                 <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>

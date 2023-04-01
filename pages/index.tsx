@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar';
 import useCurrentUser from '../hooks/useCurrentUser';
 import useMovieList from '../hooks/useMovieList';
 import useMovieListAction from '../hooks/useMovieListAction';
+import useMovieListComedy from '../hooks/useMovieListComedy';
 import useFavorites from '../hooks/useFavorites';
 import InfoModal from '../components/InfoModal';
 import useInfoModal from '../hooks/useInfoModal';
@@ -35,6 +36,7 @@ const Home = () => {
   const {data: favorites = []} = useFavorites();
   const {isOpen, closeModal} = useInfoModal();
   const { data: actionMovies = [] } = useMovieListAction();
+  const { data: comedyMovies = [] } = useMovieListComedy();
 
   console.log(movies)
   console.log(actionMovies)
@@ -46,8 +48,9 @@ const Home = () => {
       <Billboard />
       <div className="pb-40">
       {/* <MovieList title="My Favorites" data={favorites} /> */}
-      <MovieList title="Action Movies" data={actionMovies} />
       <MovieList title="Trending Now" data={movies} />
+      <MovieList title="Action" data={actionMovies} />
+      <MovieList title="Comedy" data={comedyMovies} />
 
       </div>
     </>
