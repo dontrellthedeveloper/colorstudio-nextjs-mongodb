@@ -18,6 +18,7 @@ import useMovieListDocumentary from '../hooks/useMovieListDocumentary';
 // import useFavorites from '../hooks/useFavorites';
 import InfoModal from '../components/InfoModal';
 import useInfoModal from '../hooks/useInfoModal';
+import Head from 'next/head';
 
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -57,10 +58,13 @@ const Home = () => {
   const { data: crimeMovies = [] } = useMovieListCrime();
   const { data: documentaryMovies = [] } = useMovieListDocumentary();
 
-  
+
 
   return (
     <>
+      <Head>
+        <title>Netflix Clone</title>
+      </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <Billboard />
