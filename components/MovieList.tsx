@@ -22,9 +22,9 @@ interface MovieListProps {
 
 const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
 
-  if (isEmpty(data)) {
-    return null;
-  }
+  // if (isEmpty(data)) {
+  //   return null;
+  // }
 
   const [videoLg, setVideoLg] = useState(false)
   const [videoMd, setVideoMd] = useState(false)
