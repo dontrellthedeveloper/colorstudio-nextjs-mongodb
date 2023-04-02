@@ -26,10 +26,10 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
   //   return null;
   // }
 
-  const [videoLg, setVideoLg] = useState(false)
-  const [videoMd, setVideoMd] = useState(false)
-  const [videoSm, setVideoSm] = useState(false)
-  const [videoDesktop, setVideoDesktop] = useState(false)
+  const [videoLg, setVideoLg] = useState<boolean>(false)
+  const [videoMd, setVideoMd] = useState<boolean>(false)
+  const [videoSm, setVideoSm] = useState<boolean>(false)
+  const [videoDesktop, setVideoDesktop] = useState<boolean>(false)
 
   useEffect(() => {
     const resolution = window.innerWidth;
@@ -65,7 +65,7 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
 
   
 
-const slider = useRef(null);
+const slider = useRef<any>(null);
 
 
 
