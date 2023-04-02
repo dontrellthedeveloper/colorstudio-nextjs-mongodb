@@ -1,3 +1,4 @@
+import { useState,useEffect } from 'react';
 import {NextPageContext} from 'next';
 import {signOut, getSession} from 'next-auth/react';
 import Billboard from '../components/Billboard';
@@ -20,6 +21,10 @@ import useInfoModal from '../hooks/useInfoModal';
 
 
 export async function getServerSideProps(context: NextPageContext) {
+
+  
+
+
   const session = await getSession(context);
 
   if (!session) {
@@ -37,6 +42,8 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 const Home = () => {
+
+  
   const {data: user} = useCurrentUser();
   const { data: movies = [] } = useMovieList();
   const {data: favorites = []} = useFavorites();
@@ -58,7 +65,7 @@ const Home = () => {
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <Billboard />
-      <div className="pb-40">
+      <div className="pb-20 pt-5">
       {/* <MovieList title="My Favorites" data={favorites} /> */}
       <MovieList title="Trending Now" data={movies} />
       <MovieList title="Action" data={actionMovies} />

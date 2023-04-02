@@ -52,7 +52,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
 
   return (
-    <div className="group bg-zinc-900 col-span relative h-[12vw]">
+    <div className="group bg-zinc-900 h-[50vw] col-span relative sm:h-[16vw] md:h-[12vw]">
 
 
       <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
@@ -66,7 +66,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         sm:group-hover:opacity-0
         delay-300
         w-full
-        h-[12vw]
+        h-[50vw]
+        sm:h-[16vw]
+        md:h-[12vw]
       " />
       <div  className="
         opacity-0

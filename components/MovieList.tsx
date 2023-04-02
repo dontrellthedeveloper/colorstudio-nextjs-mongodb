@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 
 import { MovieInterface } from '../types';
 // import MovieCard from './components/MovieCard';
@@ -21,11 +21,49 @@ interface MovieListProps {
 
 
 const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
+
   if (isEmpty(data)) {
     return null;
   }
 
+  const [videoLg, setVideoLg] = useState(false)
+  const [videoMd, setVideoMd] = useState(false)
+  const [videoSm, setVideoSm] = useState(false)
+  const [videoDesktop, setVideoDesktop] = useState(false)
 
+  useEffect(() => {
+    const resolution = window.innerWidth;
+
+    if (resolution > 1023 ) {
+        setVideoDesktop(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    const resolution = window.innerWidth;
+
+    if (resolution < 1024 && resolution > 767) {
+        setVideoLg(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    const resolution = window.innerWidth;
+
+    if (resolution < 768 && resolution > 639) {
+        setVideoMd(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    const resolution = window.innerWidth;
+
+    if (resolution < 640) {
+        setVideoSm(true)
+    }
+  }, [])
+
+  
 
 const slider = useRef(null);
 
@@ -42,23 +80,63 @@ const slider = useRef(null);
 
   return (
     <div className="px-4 md:px-12 mt-4 pb-10 space-y-8 ">
-      <div className='app-scroll'>
 
-      
+      {videoDesktop && (
+        <>
+          <div className='app-scroll'>
+            <div className='flex mb-4 mt-4'>
+              <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold">{title}</p>
+              <BsArrowLeftCircle className="text-white text-md md:text-xl lg:text-3xl ml-5 font-semibold cursor-pointer" onClick={() => slider?.current?.slickPrev()} />
+              <BsArrowRightCircle className="text-white text-md md:text-xl lg:text-3xl ml-5 font-semibold cursor-pointer" onClick={() => slider?.current?.slickNext()} />
+            </div>
 
-        <div className='flex mb-4 mt-4'>
-           <p className="text-white text-md md:text-xl lg:text-2xl font-semibold">{title}</p>
-           <BsArrowLeftCircle className="text-white text-md md:text-xl lg:text-3xl ml-5 font-semibold cursor-pointer" onClick={() => slider?.current?.slickPrev()} />
-           <BsArrowRightCircle className="text-white text-md md:text-xl lg:text-3xl ml-5 font-semibold cursor-pointer" onClick={() => slider?.current?.slickNext()} />
-        </div>
+            <Slider className='grid grid-cols-4 gap-2 hs-scroll full-scroll' ref={slider} {...settings}>
+              { data.map((movie) => (
+                <MovieCard key={movie.id} data={movie} />
+              ))}
+            </Slider>
 
-        <Slider className='grid grid-cols-4 gap-2 hs-scroll full-scroll' ref={slider} {...settings}>
-          { data.map((movie) => (
-            <MovieCard key={movie.id} data={movie} />
-          ))}
-         </Slider>
+          </div>
+        </>
+      )}
+      {videoLg && (
+        <>
+          <div>
+            <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold mb-4">{title}</p>
+            <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
+              {data.slice(0, 12).map((movie) => (
+                <MovieCard key={movie.id} data={movie} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
 
-      </div>
+      {videoMd && (
+        <>
+          <div>
+            <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold mb-4">{title}</p>
+            <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
+              {data.slice(0, 9).map((movie) => (
+                <MovieCard key={movie.id} data={movie} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      {videoSm && (
+        <>
+          <div>
+            <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold mb-4">{title}</p>
+            <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
+              {data.slice(0, 4).map((movie) => (
+                <MovieCard key={movie.id} data={movie} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
