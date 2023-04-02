@@ -72,7 +72,7 @@ const Auth = () => {
                             id="email"
                             type="email"
                             label="Email"
-                            onChange={(e)=> setEmail(e.target.value)}
+                            onChange={(e: any)=> setEmail(e.target.value)}
                             value={email}
                         />
                         <Input
