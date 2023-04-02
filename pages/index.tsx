@@ -10,6 +10,7 @@ import useMovieListAction from '../hooks/useMovieListAction';
 import useMovieListComedy from '../hooks/useMovieListComedy';
 import useMovieListDrama from '../hooks/useMovieListDrama';
 import useMovieListHorror from '../hooks/useMovieListHorror';
+import useMovieListThriller from '../hooks/useMovieListThriller';
 import useFavorites from '../hooks/useFavorites';
 import InfoModal from '../components/InfoModal';
 import useInfoModal from '../hooks/useInfoModal';
@@ -41,6 +42,7 @@ const Home = () => {
   const { data: comedyMovies = [] } = useMovieListComedy();
   const { data: dramaMovies = [] } = useMovieListDrama();
   const { data: horrorMovies = [] } = useMovieListHorror();
+  const { data: thrillerMovies = [] } = useMovieListThriller();
 
   console.log(movies)
   console.log(actionMovies)
@@ -57,6 +59,7 @@ const Home = () => {
       <MovieList title="Comedy" data={comedyMovies} />
       <MovieList title="Drama" data={dramaMovies} />
       <MovieList title="Horror" data={horrorMovies} />
+      <MovieList title="Thriller" data={thrillerMovies} />
       </div>
     </>
   )
