@@ -15,7 +15,7 @@ import useMovieListThriller from '../hooks/useMovieListThriller';
 import useMovieListAnimation from '../hooks/useMovieListAnimation';
 import useMovieListCrime from '../hooks/useMovieListCrime';
 import useMovieListDocumentary from '../hooks/useMovieListDocumentary';
-import useFavorites from '../hooks/useFavorites';
+// import useFavorites from '../hooks/useFavorites';
 import InfoModal from '../components/InfoModal';
 import useInfoModal from '../hooks/useInfoModal';
 
@@ -25,16 +25,16 @@ export async function getServerSideProps(context: NextPageContext) {
   
 
 
-  const session = await getSession(context);
+  // const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/auth',
-        permanent: false,
-      }
-    }
-  }
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: '/auth',
+  //       permanent: false,
+  //     }
+  //   }
+  // }
 
   return {
     props: {}
@@ -46,7 +46,7 @@ const Home = () => {
   
   const {data: user} = useCurrentUser();
   const { data: movies = [] } = useMovieList();
-  const {data: favorites = []} = useFavorites();
+  // const {data: favorites = []} = useFavorites();
   const {isOpen, closeModal} = useInfoModal();
   const { data: actionMovies = [] } = useMovieListAction();
   const { data: comedyMovies = [] } = useMovieListComedy();
@@ -57,8 +57,7 @@ const Home = () => {
   const { data: crimeMovies = [] } = useMovieListCrime();
   const { data: documentaryMovies = [] } = useMovieListDocumentary();
 
-  console.log(movies)
-  console.log(actionMovies)
+  
 
   return (
     <>
