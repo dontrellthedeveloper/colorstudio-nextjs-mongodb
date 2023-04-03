@@ -51,7 +51,7 @@ const Home = () => {
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <div className="pb-20 pt-5">
-      <GenreList title="Explore" data={exploreMovies} />
+      <GenreList title="Browse" data={exploreMovies} />
       </div>
     </>
   )

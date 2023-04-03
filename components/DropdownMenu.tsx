@@ -44,7 +44,7 @@ const DropdownMenu: React.FC<MobileMenuProps> = ({ visible }) => {
           
         </div>
         <div className="px-3 text-center text-white hover:underline">
-        <Link href='/genre/documentary'>Documentary</Link>
+        <Link href='/genre/documentaries'>Documentary</Link>
           
         </div>
       </div>

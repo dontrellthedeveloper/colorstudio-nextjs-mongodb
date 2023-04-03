@@ -15,7 +15,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
       <div className="flex flex-col gap-4">
         <div className="px-3 text-center text-white hover:underline">
       
-          <Link href='/explore'>Explore</Link>
+          <Link href='/browse'>Browse</Link>
         </div>
         <div className="px-3 text-center text-white hover:underline">
         
@@ -49,7 +49,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
           
         </div>
         <div className="px-3 text-center text-white hover:underline">
-        <Link href='/genre/documentary'>Documentary</Link>
+        <Link href='/genre/documentaries'>Documentary</Link>
           
         </div>
       </div>

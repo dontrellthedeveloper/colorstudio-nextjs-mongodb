@@ -60,7 +60,7 @@ const Navbar = () => {
           <NavbarItem label="New & Popular" />
           </Link>
 
-          <Link href='/explore'>
+          <Link href='/browse'>
           <NavbarItem label="Browse" />
           </Link>
 
