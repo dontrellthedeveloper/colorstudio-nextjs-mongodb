@@ -1,23 +1,24 @@
 import { useState,useEffect } from 'react';
 import {NextPageContext} from 'next';
 import {signOut, getSession} from 'next-auth/react';
-import Billboard from '../components/Billboard';
-import MovieList from '../components/MovieList';
-import Navbar from '../components/Navbar';
+import Billboard from '../../components/Billboard';
+import MovieList from '../../components/MovieList';
+import GenreList from '../../components/GenreList';
+import Navbar from '../../components/Navbar';
 
-import useCurrentUser from '../hooks/useCurrentUser';
-import useMovieList from '../hooks/useMovieList';
-import useMovieListAction from '../hooks/useMovieListAction';
-import useMovieListComedy from '../hooks/useMovieListComedy';
-import useMovieListDrama from '../hooks/useMovieListDrama';
-import useMovieListHorror from '../hooks/useMovieListHorror';
-import useMovieListThriller from '../hooks/useMovieListThriller';
-import useMovieListAnimation from '../hooks/useMovieListAnimation';
-import useMovieListCrime from '../hooks/useMovieListCrime';
-import useMovieListDocumentary from '../hooks/useMovieListDocumentary';
+import useCurrentUser from '../../hooks/useCurrentUser';
+import useMovieList from '../../hooks/useMovieList';
+import useMovieListAction from '../../hooks/useMovieListAction';
+import useMovieListComedy from '../../hooks/useMovieListComedy';
+import useMovieListDrama from '../../hooks/useMovieListDrama';
+import useMovieListHorror from '../../hooks/useMovieListHorror';
+import useMovieListThriller from '../../hooks/useMovieListThriller';
+import useMovieListAnimation from '../../hooks/useMovieListAnimation';
+import useMovieListCrime from '../../hooks/useMovieListCrime';
+import useMovieListDocumentary from '../../hooks/useMovieListDocumentary';
 // import useFavorites from '../hooks/useFavorites';
-import InfoModal from '../components/InfoModal';
-import useInfoModal from '../hooks/useInfoModal';
+import InfoModal from '../../components/InfoModal';
+import useInfoModal from '../../hooks/useInfoModal';
 import Head from 'next/head';
 
 
@@ -60,9 +61,6 @@ const Home = () => {
 
 
 
-  
-
-
   return (
     <>
       <Head>
@@ -70,21 +68,19 @@ const Home = () => {
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
-      <Billboard />
+      {/* <Billboard /> */}
       <div className="pb-20 pt-5">
       {/* <MovieList title="My Favorites" data={favorites} /> */}
-      {/* <div className='hidden lg:flex'>
-      <MovieList title="Trending Now" data={movies} />
-      </div> */}
-  
-      <MovieList title="Action" data={actionMovies} />
+      {/* <MovieList title="Trending Now" data={movies} /> */}
+      {/* <GenreList title="Action" data={actionMovies} />
       <MovieList title="Comedy" data={comedyMovies} />
       <MovieList title="Drama" data={dramaMovies} />
       <MovieList title="Horror" data={horrorMovies} />
       <MovieList title="Thriller" data={thrillerMovies} />
       <MovieList title="Animation" data={animationMovies} />
-      <MovieList title="Crime" data={crimeMovies} />
-      <MovieList title="Documentaries" data={documentaryMovies} />
+      <MovieList title="Crime" data={crimeMovies} /> */}
+      <GenreList title="Documentaries" data={documentaryMovies} /> 
+     
       </div>
     </>
   )

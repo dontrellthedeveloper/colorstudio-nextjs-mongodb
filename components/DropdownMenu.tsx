@@ -5,7 +5,7 @@ interface MobileMenuProps {
   visible?: boolean;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
+const DropdownMenu: React.FC<MobileMenuProps> = ({ visible }) => {
   if (!visible) {
     return null;
   }
@@ -13,14 +13,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
   return (
     <div className="bg-black w-56 absolute top-8 -right-20 py-5 flex-col border-2 border-gray-800 flex">
       <div className="flex flex-col gap-4">
-        <div className="px-3 text-center text-white hover:underline">
-      
-          <Link href='/explore'>Explore</Link>
-        </div>
-        <div className="px-3 text-center text-white hover:underline">
-        
-          <Link href='/popular'>New & Popular</Link>
-        </div>
+        {/* <div className="px-3 text-center text-white hover:underline">
+          New & Popular
+        </div> */}
         <div className="px-3 text-center text-white hover:underline">
           <Link href='/genre/action'>Action</Link>
         </div>
@@ -57,4 +52,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
   )
 }
 
-export default MobileMenu;
+export default DropdownMenu;

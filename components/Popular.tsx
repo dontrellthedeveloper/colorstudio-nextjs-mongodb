@@ -4,13 +4,12 @@ import { MovieInterface } from '../types';
 // import MovieCard from './components/MovieCard';
 import { isEmpty } from 'lodash';
 import MovieCard from './MovieCard';
-import { BsArrowLeftShort, BsArrowRightShort, BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsArrowLeftCircle, BsArrowRightCircle, BsArrowRight } from 'react-icons/bs';
+import { BsArrowLeftShort, BsArrowRightShort, BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 
 import Slider from "react-slick";
 
 import "../node_modules/slick-carousel/slick/slick.css"; 
 import "../node_modules/slick-carousel/slick/slick-theme.css";
-import Link from 'next/link';
 
 interface MovieListProps {
   data: MovieInterface[];
@@ -21,31 +20,29 @@ interface MovieListProps {
 
 
 
-const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
+const Popular: React.FC<MovieListProps> = ({ data, title }) => {
 
   // if (isEmpty(data)) {
   //   return null;
   // }
-
-  const linkTitle = title.toLowerCase();
 
   const [videoLg, setVideoLg] = useState<boolean>(false)
   const [videoMd, setVideoMd] = useState<boolean>(false)
   const [videoSm, setVideoSm] = useState<boolean>(false)
   const [videoDesktop, setVideoDesktop] = useState<boolean>(false)
 
+//   useEffect(() => {
+//     const resolution = window.innerWidth;
+
+//     if (resolution > 1023 ) {
+//         setVideoDesktop(true)
+//     }
+//   }, [])
+
   useEffect(() => {
     const resolution = window.innerWidth;
 
-    if (resolution > 1023 ) {
-        setVideoDesktop(true)
-    }
-  }, [])
-
-  useEffect(() => {
-    const resolution = window.innerWidth;
-
-    if (resolution < 1024 && resolution > 767) {
+    if (resolution > 767) {
         setVideoLg(true)
     }
   }, [])
@@ -82,20 +79,15 @@ const slider = useRef<any>(null);
   };
 
   return (
-    <div className="px-4 md:px-12 mt-4 pb-10 space-y-8 ">
+    <div className="px-4 md:px-12 mt-4 pb-10 pt-14 space-y-8 ">
 
-      {videoDesktop && (
+      {/* {videoDesktop && (
         <>
           <div className='app-scroll'>
-            <div className='flex mb-4 mt-4 align-middle items-center'>
+            <div className='flex mb-4 mt-4'>
               <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold">{title}</p>
               <BsArrowLeftCircle className="text-white text-md md:text-xl lg:text-3xl ml-5 font-semibold cursor-pointer" onClick={() => slider?.current?.slickPrev()} />
               <BsArrowRightCircle className="text-white text-md md:text-xl lg:text-3xl ml-5 font-semibold cursor-pointer" onClick={() => slider?.current?.slickNext()} />
-              <Link href={`/genre/${linkTitle}`}>
-            <p className='text-white flex justify-center align-middle text-center lg:text-left text-lg sm:text-md md:text-sm lg:text-md items-center ml-4'>view all {linkTitle}
-            <BsArrowRight className='ml-2 align-middle text-xl items-center'/>
-            </p>
-            </Link>
             </div>
 
             <Slider className='grid grid-cols-4 gap-2 hs-scroll full-scroll' ref={slider} {...settings}>
@@ -106,21 +98,16 @@ const slider = useRef<any>(null);
 
           </div>
         </>
-      )}
+      )} */}
       {videoLg && (
         <>
           <div>
             <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold mb-4">{title}</p>
             <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
-              {data.slice(0, 8).map((movie) => (
+              {data.slice(0,16).map((movie) => (
                 <MovieCard key={movie.id} data={movie} />
               ))}
             </div>
-            <Link href={`/genre/${linkTitle}`}>
-            <p className='text-white flex pt-4 justify-center align-middle text-center lg:text-left text-lg sm:text-md md:text-sm lg:text-2xl mb-4 items-center'>view all {linkTitle}
-            <BsArrowRight className='ml-2 align-middle text-xl items-center'/>
-            </p>
-            </Link>
           </div>
         </>
       )}
@@ -130,15 +117,10 @@ const slider = useRef<any>(null);
           <div>
             <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold mb-4">{title}</p>
             <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
-              {data.slice(0, 6).map((movie) => (
+              {data.slice(0,15).map((movie) => (
                 <MovieCard key={movie.id} data={movie} />
               ))}
             </div>
-            <Link href={`/genre/${linkTitle}`}>
-            <p className='text-white flex pt-4 justify-center align-middle text-center lg:text-left text-lg sm:text-md md:text-xl lg:text-2xl font-semibold mb-4 items-center'>view all {linkTitle}
-            <BsArrowRight className='ml-2 align-middle text-xl items-center'/>
-            </p>
-            </Link>
           </div>
         </>
       )}
@@ -148,17 +130,10 @@ const slider = useRef<any>(null);
           <div>
             <p className="text-white text-center lg:text-left text-xl lg:text-md md:text-xl lg:text-2xl font-semibold mb-4">{title}</p>
             <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
-              {data.slice(0, 4).map((movie) => (
+              {data.slice(0,8).map((movie) => (
                 <MovieCard key={movie.id} data={movie} />
               ))}
             </div>
-            
-            <Link className='items-center' href={`/genre/${linkTitle}`}>
-            <p className='text-white flex pt-4 justify-center align-middle text-center lg:text-left text-lg sm:text-md md:text-xl lg:text-2xl font-semibold mb-4 items-center'>view all {linkTitle}
-            <BsArrowRight className='ml-2 align-middle text-xl items-center '/>
-            </p>
-            </Link>
-            
           </div>
         </>
       )}
@@ -166,4 +141,4 @@ const slider = useRef<any>(null);
   );
 }
 
-export default MovieList;
+export default Popular;
