@@ -46,7 +46,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Netflix Clone</title>
+        <title>Color Studio</title>
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />

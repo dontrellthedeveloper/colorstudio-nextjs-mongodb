@@ -68,6 +68,16 @@ body::-webkit-scrollbar-track-piece
   padding: 5px !important;
 }
 
+/* .trunc-fix {
+  display: -webkit-box;
+  white-space: nowrap;
+  max-width: 700px;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+} */
+
 
 
 

@@ -43,7 +43,7 @@ const Navbar = () => {
     <nav className="w-full fixed z-40">
       <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
         <Link href='/'>
-        <img src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" />
+        <img src="/images/logo-3.png" className="h-14 lg:h-14" alt="Logo" />
         </Link>
         <div className="flex-row ml-8 gap-7 hidden lg:flex">
 
@@ -60,7 +60,9 @@ const Navbar = () => {
           <NavbarItem label="New & Popular" />
           </Link>
 
-          <Link href='/browse'>
+
+
+          <Link href='/browse' className='ml-auto'>
           <NavbarItem label="Browse" />
           </Link>
 
@@ -78,9 +80,9 @@ const Navbar = () => {
             <BsBell className="w-6" />
           </div> */}
           <div onClick={toggleAccountMenu} className="flex flex-row items-center gap-2 cursor-pointer relative">
-            <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
+            {/* <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
               <img src="/images/default-blue.png" alt="" />
-            </div>
+            </div> */}
             {/* <BsChevronDown className={`w-4 text-white fill-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`} /> */}
             {/* <AccountMenu visible={showAccountMenu} /> */}
           </div>
